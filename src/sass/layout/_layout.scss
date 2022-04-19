@@ -1071,3 +1071,40 @@ html{
   }
 }
 
+.p-checkbox .p-checkbox-box.p-highlight{
+  border-color: map-get($btn-colors, success);
+  background: map-get($btn-colors, success);
+}
+.btn-primary{
+  border-color: map-get($btn-colors, info) !important;
+  background: map-get($btn-colors, info) !important;
+    &:hover{
+    border-color: map-get($btn-green, 02) !important;
+    background: map-get($btn-green, 02) !important;
+  }
+}
+.generate{
+  color:$gray-700;
+  font-size:$h4-font-size;
+  letter-spacing:1px;
+  line-height:$headings-line-height;
+  font-family: "Roboto", sans-serif;
+  display:block;
+  position:relative;
+  margin-bottom:1.5rem;
+  margin-left:1rem;
+  &:after{
+    display:block;
+    contnetn:"";
+    position:absolute;
+    width:2.5rem;
+    height:2px;
+    background map-get($btn-colors, info);
+    margin-top:0.3em;
+  }
+    & + h6{
+      color:map-get($bg-green, 08);
+      margin-bottom:2.5rem;
+      margin-left:1rem;
+    }
+}
