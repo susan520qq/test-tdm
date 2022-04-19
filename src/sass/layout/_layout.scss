@@ -1070,7 +1070,7 @@ html{
     }
   }
 }
-
+//從1073開始沒有同步 是要蓋過去的硬寫
 .p-checkbox .p-checkbox-box.p-highlight{
   border-color: map-get($btn-colors, success);
   background: map-get($btn-colors, success);
