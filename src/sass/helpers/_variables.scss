@@ -4,6 +4,7 @@ $white:#fff;
 $gray-100:#f8f9fa;
 $gray-200:#e9ecef;
 $gray-300:#dee2e6;
+$gray-500:#adb5bd;
 $gray-600:#6c757d;
 $gray-700:#495057;
 $black:#000000;
@@ -18,7 +19,9 @@ $colors:();
 $colors:map-merge
   (
     (
-      "white":$white
+      "white":$white,
+      "gray":$gray-600,
+      "gray-dark":$gray-800
      
     ),
     $colors
@@ -38,25 +41,35 @@ $btn-colors:(
 //backgruond
 $bg-green:
   (
-  "01":#304b4b,
+    "01":#304b4b,
+    "02":#d4d4d4,
     "03":#b8cbe0,
-    "04":#243b55,
-    "05":#141E30,
-    "06":#c1d8d8,
-    "07":#d4d4d4,
-    "08":#707070,
-    "09":#4dc06f,
-    "10":#588b8b
-  
-  
+    "04":#707070,
+    "05":#4dc06f,
+    "06":#c1d8d8
   );
 
 $image-location:'../img/';
 
 $table:(
+  table-bg:#f1f1f1,
   title:#647384,
-  border:#c1d8d8
+  border:map-get( $bg-green,06),
+  title-icon:#A8C7C7,
+  title-icon-active:map-get($bg-green, 05),
+  splitter:#74bcbc,
+  ag-row-bg:#d1e4ef0,
+  ag-row-bg-odd:$gray-100,
+  ag-row-hover:#2196f31a,
+  border-row:$gray-300,
+  cell-active:#c2d8d6,
+  disable-bg:map-get($bg-colors, unselect),
+  disable-text:$gray-600,
+  label:map-get($bg-green,01)
+  
 );
+
+$calendar-border:0.1rem solid rgba(0,0,0,0.1);
 
 $fa-font-path:"../../fonts/fontawesome-free-5.15.4-web/webfonts";
 
@@ -97,15 +110,13 @@ $sp-md: 2rem;
 $radius-sm:.25rem;
 $radius-m:.5rem;
 
-$icon-size:(
-  
-xs:.5rem;
-sm: 1rem;
-  m: 1.25rem;
+$icon-size:( 
+xs:.5rem,
+sm: 1rem,
+  m: 1.25rem,
 semi:1.5rem,
-  md:1.75rem;
-l: 2rem;
-  
+  md:1.75rem,
+l: 2rem
 );
 
 
