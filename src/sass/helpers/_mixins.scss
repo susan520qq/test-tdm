@@ -1,0 +1,49 @@
+
+// slider menu hover,active bg
+
+@mixin a($before-or-after,$hoverName,$activeName,$focusName,$classActive,$top-or-bottom,$marginH,$left-or-right,$marginV,$width,$height){
+  a:#{$hoverName}:#{$before-or-after},
+  a:#{$activeName}:#{$before-or-after},
+  a:#{$focusName}:#{$before-or-after},
+  a:#{$classActive}:#{$before-or-after}{
+    content:"";
+    position:absolute;
+    top:0;
+    right:0;
+    width:$width;
+    height:$height;
+    margin-#{$top-or-bottom}:$marginV;
+    margin-#{$left-or-right}:$marginH;
+  }
+}
+
+
+@mixin keyframs($animation-name){
+  @keyframs($animation-name){
+    @content;
+  }
+}
+@mixin animation($str){
+  animation: #{$str};
+}
+@include keyframs(moveToR){
+  0%{
+    transform-origin: 100% 50%;
+    transform:translateX(-100%);
+  }
+  100%{
+    transform:translateX(0%);
+  }
+}
+
+//dropdown
+@mixin flexbox($position){
+  display:flex;
+  flex-wrap:wrap;
+  @if $position == 'vertical'{
+    flex-direction:column;
+  }
+  @else if $position == 'horizontal'{
+    flex-direction:row;
+  }
+}
