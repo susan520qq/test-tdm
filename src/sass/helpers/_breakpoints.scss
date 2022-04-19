@@ -1,0 +1,24 @@
+$screen-sm-min:576px;
+$screen-md-min:798px;
+$screen-lg-min:992px;
+$screen-xl-min:1200px;
+$screen-xl-ratio:4/3;
+$screen-xxl-ratio:16/9;
+
+@mixin xlr{
+  @media screen and(device-aspect-ratio: #{$screen-xl-ratio}) or(min-width:#{$screen-xl-min}){
+    @content;
+  }
+}
+
+@mixin xxlr($screen){
+  @media screen and(device-aspect-ratio: #{$screen-xxl-ratio}) or(min-width: (#{$screen} + "px")){
+    @content;
+  }
+}
+
+@mixin rwd($screen){
+  @media (min-width: (#{$screen} + "px" )){
+    @content;
+  }
+}
