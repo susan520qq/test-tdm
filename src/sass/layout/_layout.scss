@@ -232,7 +232,7 @@ html{
     background: $gray-100;
     border-radius: 20px 0 0 0;
     margin-top: $wrapper-contnet-header-top;
-    box-shadow: map-get($bg-green,06) 3px 3px 6px 0px inset, map-get($bg-green,07) -3px -3px 6px 1px inset;
+    box-shadow: map-get($bg-green,06) 3px 3px 6px 0px inset, map-get($bg-green,02) -3px -3px 6px 1px inset;
     overflow-y: auto;
     
     .header{
@@ -247,7 +247,7 @@ html{
       height: 7vh;
       padding: $sp-semi $sp-xs $sp-semi $sp-md;
       box-shadow: 0 0 4px lighten($black,25%);
-      border-bottom: 1px solid map-get($bg-green,07);
+      border-bottom: 1px solid map-get($bg-green,02);
       position:relative;
       z-index:99;
       background: linear-gradient( to right, transparent 0%, $gray-100 1%);
@@ -654,7 +654,7 @@ html{
     bottom:-104%;
     padding:7px;
     border-radius:3px;
-    background-color:map-get($bg-green,08);
+    background-color:map-get($bg-green,04);
     color:$white;
     content: attr(data-tooltip);
     font-size:$h6-font-size;
@@ -668,7 +668,7 @@ html{
     position:absolute;
     bottom:-23%;
     width:0;
-    border-bottom: 5px solid map-get($bg-green,08);
+    border-bottom: 5px solid map-get($bg-green,04);
     border-left: 5px solid transparent;
     border-right: 5px solid transparent;
     content: "";
@@ -931,7 +931,7 @@ html{
             position:relative;
             margin: 0 $sp-xs;
             padding: $sp-xs;
-            border:1px solid map-get($bg-green,07);
+            border:1px solid map-get($bg-green,02);
             transition:all 0.3s ease-in-out;
             z-index:1;
             &:hover{
@@ -978,11 +978,11 @@ html{
                 bottom:0;
                 width:100%;
                 height: 0.286rem;
-                background: map-get($bg-green,07);
+                background: map-get($bg-green,02);
                 border:0;
                 border-radius: 0 0 $radius-sm $radius-sm;
                 .p-slider-range{
-                  background: map-get($bg-green,09);
+                  background: map-get($bg-green,05);
                   height:100%;
                   position:absolute;
                   display:block;
