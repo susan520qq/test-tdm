@@ -1,0 +1,29 @@
+@mixin font-face($font-name, $font-title, $category:true){
+ $filepath:"../fonts/" + $font-file;
+  @font-face{
+    font-family:"#{$font-name}";
+    font-display:swap;
+    src:local("#{$font-name}"),
+      url($filepath + ".woff") format("woff"),
+      url($filepath + ".woff2") format("woff2"),
+      url($filepath + ".ttf") format("truetype"),
+      url($filepath + ".svg#" + $font-name + "") format("svg");
+  }
+  %#{$font-name}{
+    font:{
+      @if{
+        family:"#{$font-name}", #{$category};
+      }@else{
+          family:"#{$font-name}";
+          style:normal;
+          weight:400;
+      }
+    }
+  }
+}
+
+@include font-face("Roboto");
+
+code{
+  font-family:"Roboty";
+}
