@@ -1,0 +1,65 @@
+$breakpoints: (
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1300px,
+  xl-ratio: '4/3',
+  xxl-ratio: '16/9'
+);
+$breakpoint: map-get($breakpoints, sm);
+
+//min-width
+@mixin respond-above($breakpoint){
+  @if map-has-key($breakpoints, $breakpoint){
+    $breakpoint-value: map-get($breakpoints, $breakpoint);
+    @media(min-width: $breakpoint-value){
+      @content;
+    }
+  } @else{
+    @warn 'Invalid breakpoint: #{$breakpoint}.';
+  }
+}
+
+//max-width
+@mixin respond-below($breakpoint){
+  @if map-has-key($breakpoints, $breakpoint){
+    $breakpoint-value: map-get($breakpoints, $breakpoint);
+    @media(max-width: ($breakpoint-value - 1 )){
+      @content;
+    }
+  }@else{
+    @warn 'Invalid breakpoint: #{$breakpoint}.';
+  }
+}
+
+//(min-width) and (max-width)
+@mixin respond-between($lower, $upper){
+  @if map-has-key($breakpoints, $lower) and map-has-key($breakpoints, $upper){
+    $lower-breakpoint: map-get($breakpoints, $lower);
+    $upper-breakpoint: map-get($breakpoints, $upper);
+    @media(min-width: $lower-breakpoint) and (max-width: ($upper-breakpoint - 1 )){
+      @content;
+    }
+  }@else{
+     @if (map-has-key($breakpoints, $lower) == false) {
+      @warn 'Your lower breakpoint was invalid: #{$lower}.';
+    }
+   @if (map-has-key($breakpoints, $upper) == false) {
+      @warn 'Your upper breakpoint was invalid: #{$upper}.';
+    }
+  }
+}
+
+//ratio
+@mixin respond-ratio($ratio){
+  @if map-has-key($breakpoints, $ratio){
+    $ratio-breakpoint: map-get($breakpoints, $ratio);
+    @media screen and (device-aspect-ratio: $ratio-breakpoint){
+      @content;
+    }
+  }@else{
+     @warn 'Invalid breakpoint: #{$breakpoint}.';
+  }
+}
+

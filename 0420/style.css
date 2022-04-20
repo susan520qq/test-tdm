@@ -1,0 +1,913 @@
+@charset "UTF-8";
+@-webkit-keyframes moveToR {
+  0% {
+    -webkit-transform-origin: 100% 50%;
+            transform-origin: 100% 50%;
+    -webkit-transform: translateX(-100%);
+            transform: translateX(-100%);
+  }
+  100% {
+    -webkit-transform: translateX(0%);
+            transform: translateX(0%);
+  }
+}
+@keyframes moveToR {
+  0% {
+    -webkit-transform-origin: 100% 50%;
+            transform-origin: 100% 50%;
+    -webkit-transform: translateX(-100%);
+            transform: translateX(-100%);
+  }
+  100% {
+    -webkit-transform: translateX(0%);
+            transform: translateX(0%);
+  }
+}
+
+/*******************************************************/
+/***********************************************************/
+/***********************************************************/
+@font-face {
+  font-family: 'Roboto';
+  font-display: swap;
+  src: local("Roboto"), url(fonts/Roboto.woff) format("woff"), url(fonts/Roboto.woff2) format("woff2"), url(fonts/Roboto.ttf) format("truetype");
+  font-style: normal;
+  font-weight: 400;
+}
+
+/*********************************************************/
+.view {
+  background-color: #f1f1f1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  height: 100vh;
+  width: 90vw;
+  min-width: 24em;
+  margin: auto;
+  position: relative;
+}
+
+.view .ag-theme-alpine .ag-root-wrapper {
+  border: 0;
+}
+
+.filter, .openDetail {
+  color: #A8C7C7;
+}
+
+.ag-header-row {
+  color: #647384;
+  font-weight: bold;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+}
+
+.ag-header-cell {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.ag-header-cell[aria-sort='ascending'] .customSortDownLabel.active {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.ag-header-cell[aria-sort='ascending'] .customSortUpLabel.inactive {
+  display: none;
+}
+
+.ag-header-cell[aria-sort='descending'] .customSortDownLabel.inactive {
+  display: none;
+}
+
+.ag-header-cell[aria-sort='descending'] .customSortUpLabel.active {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.ag-header-cell:hover .headerLabel.r .filter,
+.ag-header-cell:hover .headerLabel.r .openDetail {
+  visibility: visible;
+}
+
+.ag-header-cell .headerLabel.r .filter,
+.ag-header-cell .headerLabel.r .openDetail {
+  visibility: hidden;
+}
+
+.ag-header-cell.ag-column-menu-visible .headerLabel.r .filter,
+.ag-header-cell.ag-header-active .headerLabel.r .filter:active,
+.ag-header-cell.ag-column-menu-visible .headerLabel.r .openDetail,
+.ag-header-cell.ag-header-active .headerLabel.r .openDetail:active {
+  visibility: visible;
+}
+
+.headerLabel.r div:not(:last-child) {
+  margin-right: .25rem;
+}
+
+.headerLabel.l div:not(:first-child) {
+  margin-right: .25rem;
+}
+
+.ag-theme-alpine .ag-row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  border: none;
+}
+
+.ag-theme-alpine .ag-cell, .ag-cell {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.ag-theme-alpine .ag-ltr .ag-cell {
+  border-right-width: 0;
+}
+
+.ag-pinned-left-cols-container .ag-cell.ag-cell-not-inline-editing.ag-cell-auto-height {
+  line-height: 60px;
+}
+
+.ag-theme-alpine .ag-header-cell,
+.ag-theme-alpine .ag-cell.ag-cell-wrap-text,
+.ag-theme-alpine .ag-full-width-row .ag-cell-wrapper.ag-row-group {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.ag-theme-alpine .ag-row > .ag-cell-wrapper {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.ag-pinned-left-cols-container .ag-cell-wrapper {
+  display: block;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ag-theme-alpine .ag-header-cell:after {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  content: "";
+  position: absolute;
+  z-index: 1;
+  height: 20px;
+  width: 1px;
+  right: 0;
+}
+
+.ag-theme-alpine .ag-pinned-left-header .ag-header-cell:last-child:after {
+  display: none;
+}
+
+.ag-theme-alpine .ag-cell, .ag-theme-alpine .ag-full-width-row .ag-cell-wrapper.ag-row-group {
+  line-height: 25px;
+  /**/
+}
+
+.ag-cell-wrapper,
+.ag-theme-alpine .ag-cell-wrapper > *:not(.ag-cell-value):not(.ag-group-value) {
+  height: 60px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.headerTitleCell {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.headerTitleCell .headerLabel.l, .headerTitleCell .headerLabel.r {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.headerTitleCell .headerLabel .customHeaderLabel {
+  color: #647384;
+  margin-right: 0.25rem;
+}
+
+.headerTitleCell .headerLabel .sort {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.ag-theme-alpine .ag-header {
+  background-color: #f1f1f1;
+  border-bottom: solid 2px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 50px;
+  width: 100%;
+}
+
+.customSortDownLabel,
+.customSortUpLabel {
+  color: #A8C7C7;
+}
+
+.ag-theme-alpine .ag-pinned-left-header,
+.ag-theme-alpine .ag-cell.ag-cell-last-left-pinned:not(.ag-cell-range-right):not(.ag-cell-range-single-cell) {
+  border-right: 1px solid;
+}
+
+.ag-pinned-left-cols-container .ag-row-hover .ag-cell:first-child {
+  border-left: 3px solid;
+}
+
+.ag-header-cell:hover {
+  cursor: auto;
+}
+
+.ag-header-cell:hover .ag-header-cell-sortable:visited,
+.ag-header-cell:hover .ag-header-cell-sortable,
+.ag-header-cell-sortable:active,
+.ag-header-cell-sortable:focus {
+  cursor: pointer;
+}
+
+button.expand,
+button.splitter {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  background: inherit;
+  cursor: pointer;
+  border: 0;
+}
+
+button.expand svg {
+  width: 24px;
+  height: 21px;
+  fill: #647384;
+}
+
+button.expand:hover svg,
+button.expand.active svg {
+  fill: #0094ff;
+}
+
+button.splitter {
+  z-index: 2;
+  color: #74bcbc;
+  font-size: 2rem;
+}
+
+button.splitter i.fa-caret-left {
+  position: absolute;
+  top: 128px;
+  left: 588px;
+}
+
+button.splitter i.fa-caret-right {
+  position: absolute;
+  top: 128px;
+  left: 190px;
+}
+
+button.expand .messageE,
+button.expand .messageC,
+button.splitter i .message {
+  display: none;
+}
+
+button.expand:hover.open svg + .messageE,
+button.expand:hover.close svg + .messageE + .messageC,
+button.splitter:hover i .message {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: absolute;
+  color: #ffffff;
+  font-size: 0.25rem;
+  background: #000;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  z-index: 3;
+}
+
+button.splitter:hover i .message {
+  left: -18px;
+}
+
+button.expand:hover svg + .messageE,
+button.expand:hover.close svg + .messageE + .messageC {
+  top: 24px;
+  left: 5px;
+}
+
+button.expand:hover.open svg + .messageE:before,
+button.expand:hover.close svg + .messageE + .messageC:before,
+button.splitter:hover i .message:before {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  content: "";
+  border: solid transparent;
+  border-bottom-color: #000;
+  border-width: 5px;
+}
+
+button.expand:hover.open svg + .messageE:before,
+button.expand:hover.close svg + .messageE + .messageC:before {
+  left: 33%;
+}
+
+button.splitter i .messageV {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 224px;
+  /*要修*/
+  background: #74bcbc;
+  position: absolute;
+  top: -77px;
+  /*要修*/
+  left: -31px;
+  direction: ltr;
+  -webkit-writing-mode: vertical-rl;
+      -ms-writing-mode: tb-rl;
+          writing-mode: vertical-rl;
+  font-size: 1rem;
+  padding: 0.5rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: #fff;
+}
+
+i.fa.fa-caret-right:after,
+i.fa.fa-caret-left:after {
+  content: "";
+  width: 10px;
+  height: 240px;
+  position: absolute;
+  background: #96b5ca52;
+  top: -77px;
+  left: 0;
+}
+
+.ag-cell-wrapper .has-delay {
+  color: red;
+}
+
+.has-ac-date {
+  border: 1px solid red;
+}
+
+.has-empty {
+  border: 1px solid #d8d8d8;
+  background: #fff;
+  height: 27px;
+}
+
+.ag-theme-alpine .ag-ltr .ag-cell-focus:focus,
+.ag-theme-alpine .ag-ltr .ag-cell:focus,
+.ag-theme-alpine .ag-ltr .ag-has-focus .ag-cell-focus:not(.ag-cell-range-selected) {
+  background-color: #c2d8d6;
+  border: none;
+}
+
+.ag-cell-wrapper .cell {
+  -webkit-box-orient: horizontal !important;
+  -webkit-box-direction: normal !important;
+      -ms-flex-direction: row !important;
+          flex-direction: row !important;
+  -ms-flex-pack: distribute !important;
+      justify-content: space-around !important;
+}
+
+.ag-cell-wrapper .cell .cellDate {
+  line-height: 25px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  min-width: 94px;
+}
+
+.ag-cell-wrapper .cell .cellDate .planDate {
+  padding: 0 0.5rem;
+  min-width: 94px;
+}
+
+.ag-cell-wrapper .cell .cellDetailSwitch {
+  opacity: 0;
+}
+
+.ag-row-hover .ag-cell-wrapper .cell .cellDetailSwitch,
+.ag-cell-focus .ag-cell-wrapper .cell .cellDetailSwitch {
+  opacity: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: inherit;
+  margin-left: .5rem;
+}
+
+.ag-full-width-container .ag-row {
+  background-color: #c2d8d6;
+  z-index: 2;
+  color: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0.5rem;
+}
+
+.full-width-cell {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.full-width-cell .cell {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.full-width-cell .cell .date {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-right: 0.5rem;
+}
+
+.full-width-cell .cell .date label {
+  font-size: .25rem;
+  font-weight: bolder;
+}
+
+.full-width-cell .cell .date input {
+  border: none;
+  -webkit-box-shadow: 2px 2px 3px #ccdbe8 inset, -1px -1px 2px #ffffff80 inset;
+          box-shadow: 2px 2px 3px #ccdbe8 inset, -1px -1px 2px #ffffff80 inset;
+  padding: 0.25rem;
+}
+
+.full-width-cell .cell .date input:focus {
+  outline: none;
+  border: 2px solid;
+}
+
+.full-width-cell .cell .date input:-moz-read-only {
+  background-color: #e5e5e5;
+  color: #6c757d;
+  box-shadow: none;
+}
+
+.full-width-cell .cell .date input:read-only {
+  background-color: #e5e5e5;
+  color: #6c757d;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.full-width-cell .cell button {
+  border-radius: 0.25rem;
+  border: 0;
+  margin-right: 0.5rem;
+  width: 24px;
+  height: 24px;
+  color: #fff;
+  cursor: pointer;
+  -webkit-box-shadow: 0px 2px 3px #0000001a, 0px 1px 2px #0000000f;
+          box-shadow: 0px 2px 3px #0000001a, 0px 1px 2px #0000000f;
+}
+
+.full-width-cell .cell button.cancel {
+  background-color: red;
+}
+
+.table2nd {
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: inherit;
+  width: inherit;
+  background: #fff;
+  top: 0;
+  left: 0;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  z-index: 5;
+}
+
+.table2nd .title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.table2nd .title [aria-label="breadcrumb"] {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-weight: bold;
+  font-size: 1rem;
+  padding: .5rem;
+}
+
+.table2nd .title [aria-label="breadcrumb"]:hover {
+  cursor: pointer;
+}
+
+.table2nd .title button {
+  font-size: 1.5rem;
+  border: 0;
+  background: none;
+  color: #A8C7C7;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.table2nd .title button:hover {
+  color: #0094ff;
+}
+
+.table2nd .table {
+  width: inherit;
+  height: inherit;
+  -webkit-box-shadow: 0px 0.0625em 0.0625em #00000040 ,  0px 0.125em 0.5em #00000040, 0px 0px 0px 1px  #ffffff1a inset;
+          box-shadow: 0px 0.0625em 0.0625em #00000040 ,  0px 0.125em 0.5em #00000040, 0px 0px 0px 1px  #ffffff1a inset;
+}
+
+.my-calendar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.my-calendar .p-datepicker-group-container .p-datepicker-group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.my-calendar .p-datepicker-group-container .p-datepicker-group .p-datepicker-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.my-calendar .p-datepicker-group-container .p-datepicker-group .p-datepicker-header .p-datepicker-title {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.my-calendar .p-datepicker-group-container .p-datepicker-group .p-datepicker-header .p-datepicker-title .p-dropdown {
+  border: 0;
+}
+
+.my-calendar .p-datepicker-group-container .p-datepicker-group .p-datepicker-header .p-datepicker-title .p-dropdown.p-inputwrapper-focus, .my-calendar .p-datepicker-group-container .p-datepicker-group .p-datepicker-header .p-datepicker-title .p-dropdown:hover, .my-calendar .p-datepicker-group-container .p-datepicker-group .p-datepicker-header .p-datepicker-title .p-dropdown:click, .my-calendar .p-datepicker-group-container .p-datepicker-group .p-datepicker-header .p-datepicker-title .p-dropdown:focus, .my-calendar .p-datepicker-group-container .p-datepicker-group .p-datepicker-header .p-datepicker-title .p-dropdown:not(.p-disabled):hover {
+  outline: none;
+  color: #0094ff;
+}
+
+.my-calendar .p-datepicker-group-container .p-datepicker-group .p-datepicker-header .p-datepicker-title .p-dropdown.month {
+  font-size: 1rem;
+  color: #747978;
+}
+
+.my-calendar .p-datepicker-group-container .p-datepicker-group .p-datepicker-calendar-container table.p-datepicker-calendar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.my-calendar .p-datepicker-group-container .p-datepicker-group .p-datepicker-calendar-container table.p-datepicker-calendar thead {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.my-calendar .p-datepicker-group-container .p-datepicker-group .p-datepicker-calendar-container table.p-datepicker-calendar thead tr {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  text-align: center;
+}
+
+.my-calendar .p-datepicker-group-container .p-datepicker-group .p-datepicker-calendar-container table.p-datepicker-calendar thead tr th {
+  width: 2.5rem;
+  height: 2rem;
+  line-height: 2.5rem;
+  font-size: .25rem;
+  color: #4b6289;
+  margin: 0 0.15rem;
+}
+
+.my-calendar .p-datepicker-group-container .p-datepicker-group .p-datepicker-calendar-container table.p-datepicker-calendar tbody {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.my-calendar .p-datepicker-group-container .p-datepicker-group .p-datepicker-calendar-container table.p-datepicker-calendar tbody tr {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  text-align: center;
+}
+
+.my-calendar .p-datepicker-group-container .p-datepicker-group .p-datepicker-calendar-container table.p-datepicker-calendar tbody tr td {
+  width: 2.5rem;
+  height: 2.5rem;
+  line-height: 2.5rem;
+  position: relative;
+  cursor: pointer;
+  -webkit-transition: color, background 0.2s ease-in-out;
+  transition: color, background 0.2s ease-in-out;
+  border-radius: 12px;
+  margin: 0.25rem 0.15rem;
+}
+
+.my-calendar .p-datepicker-group-container .p-datepicker-group .p-datepicker-calendar-container table.p-datepicker-calendar tbody tr td:not(.day-empty):not(.day-active):not(.has-delay):hover {
+  color: #7bc4db;
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.my-calendar .p-datepicker-group-container .p-datepicker-group .p-datepicker-calendar-container table.p-datepicker-calendar tbody tr td.day-active {
+  color: #fff;
+  background: #7bc4db;
+}
+
+.my-calendar .p-datepicker-group-container .p-datepicker-group .p-datepicker-calendar-container table.p-datepicker-calendar tbody tr td.day-active.has-delay {
+  color: #f04;
+}
+
+tbody td.day-active.has-today::before {
+  background: #059346;
+}
+
+tbody td.day-empty {
+  cursor: initial;
+}
+
+.has-today:before {
+  content: "";
+  position: absolute;
+  display: block;
+  top: 0.4rem;
+  left: 0.4rem;
+  width: 0.35rem;
+  height: 0.35rem;
+  border-radius: 50%;
+  background: #52b67a;
+}
+
+tbody td.has-delay:not(.day-active) {
+  background: rgba(255, 0, 0, 0.1);
+  color: #f04;
+}
+
+/**                   20220420                */
+/*----------------------- body------------------------------*/
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
+html body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-family: "Roboto", sans-serif !important;
+  line-height: 1;
+}
+
+html body img {
+  max-width: 100%;
+}
+
+html body ol, html body ul, html body dl {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+html body a, html body button, html body a:hover {
+  outline: 0;
+  cursor: pointer;
+}
+
+html body [tabindex="-1"]:focus:not(:focus-visible) {
+  outline: 0 !important;
+}
+
+.noti-dot {
+  position: absolute;
+  border-radius: 50%;
+  font-size: 0.5rem;
+  font-weight: bolder;
+  color: #fff;
+  background-color: #c8553d;
+  padding: 2px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+/*---------------蓋掉用  cover start --------------*/
+:root {
+  --font-family-sans-serif:"Roboto", sans-serif !important;
+  --font-family-monospace:"Roboto", sans-serif !important;
+  --font-family:"Roboto", sans-serif !important;
+}
+
+.p-component,
+.p-inputtext {
+  font-family: "Roboto", sans-serif !important;
+}
+
+.p-multiselect-label-container {
+  min-width: 12rem;
+}
+
+/* cover end */
+/*# sourceMappingURL=style.css.map */
