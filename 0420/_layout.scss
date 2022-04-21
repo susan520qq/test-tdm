@@ -194,30 +194,20 @@ html{
               animation:moveToR .4s ease-in-out;
             }
           }
-          
-          &:hover, &:active, &:focus, &.active{
-            color: map-get($btn-colors,info);
+          &:active, &.active, &:hover{
             background-color: $gray-100;
-            @include a('before','hover','active','focus','active',top,-20px,right,-20px,40px,44px);
-            @include a('after','hover','active','focus','active',top,20px,right,-20px,40px,44px);     
-            a.active:hover:before, &:before{
-              //@extend %coner;
-              //@include margin(-20px);
-           //   @include background(20px,0px, $gray-100, $gray-100);找不到
-              z-index:-1;
-            }
-            a.active:hover:after, &:after{
-              //@extend %coner;
-              //@include margin(20px);
-            //  @include background(0px,20px, $gray-100, $gray-100);找不到
-              z-index:-1;
-            }
             svg{
               fill: map-get($btn-colors,info);
             }
-          }
-          
-        }//nav's a end
+             &:before,a.active:hover:before{
+                @include radial-gradient(circle,#707070,top,right,bottom,left,20px,0,0,0);
+            }
+             &:after,a.active:hover:after{
+                @include radial-gradient(circle,#707070,top,right,bottom,left,0,0,0,20px);
+            }
+          }//nav's a end
+            @include a('before','hover','active','active',top,-20px,right,-20px,40px,44px);
+            @include a('after','hover','active','active',top,-20px,right,20px,40px,44px);     
       }
     }//nav end
   }//sidebar end
@@ -230,7 +220,7 @@ html{
     width:calc(100% - $nav-width);
     background: $gray-100;
     border-radius: 20px 0 0 0;
-    margin-top: 1rem;//不確定
+    margin-top: $wrapper-content-header-top;
     box-shadow: map-get($bg-green,06) 3px 3px 6px 0px inset, map-get($bg-green,02) -3px -3px 6px 1px inset;
     overflow-y: auto;
     
