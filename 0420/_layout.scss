@@ -710,11 +710,7 @@ html{
       height:36px;
       border-radius:$radius-m;
       margin-right:$sp-semi;
-      @include respond-ratio(xl-ratio){
-        padding: $sp-xxs $sp-sm;
-        min-width:5vw;
-      }
-      @include respond-above(xxl){
+      @include respond-ratio-above(xxl-ratio, xxl){
         padding: $sp-xxs $sp-sm;
         min-width:5vw;
       }
@@ -725,7 +721,7 @@ html{
       }
       i{
         font-size:map-get($icon-size,sm);
-        @include respond-above(xxl){
+       @include respond-ratio-above(xxl-ratio, xxl){
           font-size: (map-get($icon-size,sm)) + .4rem;
         }
       }
