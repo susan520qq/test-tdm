@@ -23,10 +23,10 @@
   // background image
   @mixin radial-gradient($shape,$color,$position01,$position02,$position03,$position04,$bw01,$bw02,$bw03,$bw04){
     background:
-      radial-gradient($shape at $position01 $position04, transparent $bw01, $color02 0) $position01 $position04,
-      radial-gradient($shape at $position01 $position02, transparent $bw02, $color03 0) $position01 $position02,
-      radial-gradient($shape at $position03 $position02, transparent $bw03, $color03 0) $position03 $position02,
-      radial-gradient($shape at $position03 $position04, transparent $bw04, $color03 0) $position03 $position04;
+      radial-gradient($shape at $position01 $position04, transparent $bw01, $color 0) $position01 $position04,
+      radial-gradient($shape at $position01 $position02, transparent $bw02, $color 0) $position01 $position02,
+      radial-gradient($shape at $position03 $position02, transparent $bw03, $color 0) $position03 $position02,
+      radial-gradient($shape at $position03 $position04, transparent $bw04, $color 0) $position03 $position04;
     background-size: 50% 50%;
     background-repeat: no-repeat;
   }
