@@ -63,3 +63,17 @@ $breakpoint: map-get($breakpoints, sm);
   }
 }
 
+//
+@mixin respond-ratio-above($ratio, $breakpoint){
+  @if map-has-key($breakpoints, $ratio) and map-has-key($breakpoints, $breakpoint){
+    $ratio-breakpoint: map-get($breakpoints, $ratio);
+    $breakpoint-value: map-get($breakpoints, $breakpoint);
+    @media screen and (device-aspect-ratio: $ratio-breakpoint) and (min-width: ($breakpoint-value )){
+      @content;
+    }
+  }@else{
+     
+      @warn 'Your upper breakpoint was invalid: #{$upper}.';
+   
+  }
+}
