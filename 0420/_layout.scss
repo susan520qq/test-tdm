@@ -68,7 +68,7 @@ html{
   position:absolute;
   border-radius:50%;
   font-size: $font-size-xs;
-  font-weight:bolder;
+  font-weight:map-get($font-weight,bolder);
   color: $white;
   background-color:map-get($btn-colors,danger);
   padding:2px;
