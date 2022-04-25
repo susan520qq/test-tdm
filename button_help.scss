@@ -1,0 +1,226 @@
+//.css
+
+.help {
+  display: none;
+}
+
+.help.active {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background: #ffffffd1;
+  z-index: 9999;
+  pointer-events: unset;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.help span {
+  position: relative;
+  color: #c8553d;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  line-height: 1;
+}
+
+.help span:before {
+  position: absolute;
+  border: 2px solid #c8553d;
+  content: "";
+}
+
+.help span:after {
+  position: absolute;
+  content: "";
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.help .download {
+  top: 140px;
+  right: -1000px;
+}
+
+.help .download:before {
+  top: -62px;
+  right: 60px;
+  width: 40px;
+  height: 40px;
+}
+
+.help .download:after {
+  top: -30px;
+  right: 76px;
+  content: "\f309";
+}
+
+.help .name {
+  top: 40px;
+  left: 20px;
+}
+
+.help .name:before {
+  top: -12px;
+  left: -228px;
+  width: 200px;
+  height: 40px;
+}
+
+.help .name:after {
+  top: -8px;
+  left: -28px;
+  content: "\f30b";
+}
+
+.help .morecolumn {
+  top: 120px;
+  left: -286px;
+}
+
+.help .morecolumn:before {
+  top: -12px;
+  left: -65px;
+  width: 40px;
+  height: 40px;
+}
+
+.help .morecolumn:after {
+  top: -8px;
+  left: -28px;
+  content: "\f30b";
+}
+
+.help .row3column {
+  top: 159px;
+  left: 122px;
+}
+
+.help .row3column:before {
+  top: -12px;
+  left: -65px;
+  width: 40px;
+  height: 40px;
+}
+
+.help .row3column:after {
+  top: -8px;
+  left: -28px;
+  content: "\f30b";
+}
+
+//-------------------------------------------------------------
+//.scss
+
+// 說明頁
+// <button class="expand help active">
+// <svg></svg>
+// <span class="download">Save as files in different formats </span>
+// <span class="name">Change Schedule Name</span>
+// <span class="morecolumn">Expand/Collapse Column</span>
+// <span class="row3column">Expand/Collapse Left&nbsp;Freeze Column</span>
+// </button>
+.help{
+    display: none;
+    &.active{
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        background: #ffffffd1;
+        z-index: 9999;
+        pointer-events: unset;
+        display: flex;       
+    }
+    span{
+        position: relative;
+        color: map-get($btn-colors , danger );
+        display: flex;
+        // @extend %fa-icon;
+        // @extend .fa-solid;
+        @include fa-icon;
+        @extend .fas;
+        &:before{
+            position: absolute;
+            border: 2px solid map-get($btn-colors , danger );
+            content: "";
+        }
+        &:after{
+            position: absolute;
+            content: "";
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+    }
+    .download{
+        top: 140px;
+        right: -1000px;
+        &:before{
+            top: -62px;
+            right: 60px;
+            width: 40px;
+            height: 40px;
+        }
+        &:after{
+            top: -30px;
+            right: 76px;
+            content: fa-content($fa-var-long-arrow-alt-down);
+            // content: "↓";
+        }
+    }
+    .name{
+        top: 40px;
+        left: 20px;
+        &:before{
+            top: -12px;
+            left: -228px;
+            width: 200px;
+            height: 40px;
+        }
+        &:after{
+            top: -8px;
+            left: -28px;
+            content: fa-content($fa-var-long-arrow-alt-right);
+            // content: "→";
+        }
+    }
+    .morecolumn{
+        top: 120px;
+        left: -286px;
+        &:before{
+            top: -12px;
+            left: -65px;
+            width: 40px;
+            height: 40px;
+        }
+        &:after{
+            top: -8px;
+            left: -28px;
+            content: fa-content($fa-var-long-arrow-alt-right);
+            // content: "→";
+        }
+    }
+    .row3column{
+        top: 159px;
+        left: 122px;
+        &:before{
+            top: -12px;
+            left: -65px;
+            width: 40px;
+            height: 40px;
+        }
+        &:after{
+            top: -8px;
+            left: -28px;
+            content: fa-content($fa-var-long-arrow-alt-right);
+            // content: "→";
+        }
+    }
+
+}
