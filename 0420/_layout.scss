@@ -759,7 +759,7 @@ html{
             height: $size + $sp-xxs;
           }
         }
-        &:hover{
+        &:hover:not(.size-sm):not(.size-xs){
           svg.btn-icon{
             width:$size - $sp-xxs;
             height: $size - $sp-xxs;
