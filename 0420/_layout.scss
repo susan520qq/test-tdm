@@ -1,10 +1,21 @@
-@import 'variables';
+@import 'variables'; 
 @import 'mixins';
 @import 'breakpoints';
-// @import 'fonts/';
-// @import 'fonts/fontawesome-free-5.15.4-web/scss/fontawesome.scss';
-// @import 'fonts/fontawesome-free-5.15.4-web/scss/solid.scss';
+@import 'fonts/';
+@import '../styles/fonts/fontawesome-free-5.15.4-web/scss/fontawesome.scss';
+@import '../styles/fonts/fontawesome-free-5.15.4-web/scss/solid.scss';
 
+
+// @font-face{
+//   font-family: 'Roboto';
+//   font-display: swap;
+//   src: local('Roboto'),
+//            url( ../styles/fonts/Roboto.woff) format('woff'),
+//            url( ../styles/fonts/Roboto.woff2) format('woff2'),
+//            url( ../styles/fonts/Roboto.ttf ) format('truetype');
+//   font-style: normal;
+//   font-weight: 400;
+// }
 
 /*----------------------- fontawesome style------------------------------*/
 // .user{
@@ -25,6 +36,7 @@
 //     content: fa-content($fa-var-user);
 //   }
 // }
+
 
 /*----------------------- body------------------------------*/
 *,
@@ -62,560 +74,560 @@ html{
   }
 }
 
-
 //message account number
 .noti-dot{
-  position:absolute;
-  border-radius:50%;
-  font-size: $font-size-xs;
-  font-weight:map-get($font-weight,bolder);
-  color: $white;
-  background-color:map-get($btn-colors,danger);
-  padding:2px;
-  display:flex;
-  justify-content:center;
-}
-
-
-/*---------------蓋掉用  cover start --------------*/
+    position:absolute;
+    border-radius:50%;
+    font-size: $font-size-xs;
+    font-weight:bolder;
+    color: $white;
+    background-color:map-get($btn-colors,danger);
+    padding:2px;
+    display:flex;
+    justify-content:center;
+  }
+  
+  /*---------------蓋掉用  cover start --------------*/
 :root{
-  --font-family-sans-serif:"Roboto", sans-serif !important;
-  --font-family-monospace:"Roboto", sans-serif !important;
-  --font-family:"Roboto", sans-serif !important;
-}
-.p-component,
-.p-inputtext{
-  font-family: "Roboto", sans-serif !important;
-}
-.p-multiselect-label-container{
-  min-width: 12rem;
-}
-/* cover end */
+    --font-family-sans-serif:"Roboto", sans-serif !important;
+    --font-family-monospace:"Roboto", sans-serif !important;
+    --font-family:"Roboto", sans-serif !important;
+  }
+  .p-component,
+  .p-inputtext{
+    font-family: "Roboto", sans-serif !important;
+  }
+  .p-multiselect-label-container{
+    min-width: 12rem;
+  }
+  /* cover end */
 
 //*****************************************************//
 
 .wrapper{
   width: 100vw;
   height:100vh;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  align-items: stretch;
+  @include flexbox(row,nowrap);
+  @include flexbox-align(flex-start,stretch);
   // background: linear-gradient(to bottom, map-get($btn-colors,info), map-get($btn-colors,info));
   background:map-get($btn-colors,info);
   
   .sidebar{
-    display: flex;
-    flex-direction: column;
-    width: $nav-width;
-    //height: 100%;
-    flex-grow: 0;
-     // background: linear-gradient(to bottom, map-get($btn-colors,info), map-get($btn-colors,info));
-    background:map-get($btn-colors,info);
-    padding: $sp-sm 0;
-    transition:all .2s;
-    z-index:999;
-    
-    .logo{
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      a.logo{
-        height:3vh;
-        // background: $logo no-repeat 0 0;
-        font-size: $font-size-xs;
-        font-weight: map-get($font-weight,bolder);
-        color:map-get($bg-green,03);
-        text-decoration:none;
-        span{
+     @include flexbox(column,wrap);
+      width: $nav-width;
+      //height: 100%;
+      flex-grow: 0;
+       // background: linear-gradient(to bottom, map-get($btn-colors,info), map-get($btn-colors,info));
+      background:map-get($btn-colors,info);
+      padding: $sp-sm 0;
+      transition:all .2s;
+      z-index:999;
+      
+      .logo{
+        @include flexbox(column,nowrap);
+        @include flexbox-align(flex-start,center);
+        a.logo{
           height:3vh;
-          display:flex;
-          align-items:center;
-        }
-      }
-    }//logo end
-    
-    //main nav list
-    ul.nav{
-      display:flex;
-      flex-wrap:wrap;
-      flex-direction:column;
-      list-style:none;
-      margin-top: $sp-semi;
-      
-      li{
-        width:100%;
-        min-height: $nav-width;
-        margin: $sp-xxs 0;
-        word-wrap: break-word;
-        display:flex;
-        align-items:center;
-        a{
-          display:flex;
-          flex-direction:row;
-          align-items:center;
-          justify-content:flex-start;
-          //max-widtch: calc(.25rem *47 );
-          width: $nav-width;
-          height:100%;
+          // background: $logo no-repeat 0 0;
+          font-size: $font-size-xs;
+          font-weight: map-get($font-weight,bolder);
+          color:map-get($bg-green,"03");
           text-decoration:none;
-          padding:0 $sp-sm 0 $sp-xs;
-          position: relative;
-          z-index: 2;
-          color: $white;
-          transition: color 400ms;
-          
-          svg{
-            overflow:visible;
-            width: map-get($icon-size,md);
-            height: map-get($icon-size,md);
-            fill: $white;
-            display: block;
-            font-size: $font-size-base;
-            line-height: $line-height-s;
-          }
           span{
-            font-size: $font-size-sm;
-            margin-left: $sp-xs;
-            visibility: visible;
-            color: map-get($btn-colors,info);
-            white-space:nowrap;
-            line-height: $line-height-base;
-            font-weight: map-get($font-weight,bold);
-            display:none;
-          }
-          &:hover{
-            span{
-              display:flex;
-              align-items:center;
-              height:$nav-width;
-              padding: $sp-xxs $sp-sm $sp-xxs $sp-xxs;
-              background: $gray-100;
-              animation:moveToR .4s ease-in-out;
-            }
-          }
-          &:active, &.active, &:hover{
-            background-color: $gray-100;
-            svg{
-              fill: map-get($btn-colors,info);
-            }
-             &:before,a.active:hover:before{
-                @include radial-gradient(circle,#707070,top,right,bottom,left,20px,0,0,0);
-            }
-             &:after,a.active:hover:after{
-                @include radial-gradient(circle,#707070,top,right,bottom,left,0,0,0,20px);
-            }
-          }//nav's a end
-            @include a('before','hover','active','active',top,-20px,right,-20px,40px,44px);
-            @include a('after','hover','active','active',top,-20px,right,20px,40px,44px);     
-      }
-    }//nav end
-  }//sidebar end
-  
-  //main content
-  .content{
-    display:flex;
-    flex-grow:1;
-    flex-direction:column;
-    width:calc(100% - $nav-width);
-    background: $gray-100;
-    border-radius: 20px 0 0 0;
-    margin-top: $wrapper-content-header-top;
-    box-shadow: map-get($bg-green,06) 3px 3px 6px 0px inset, map-get($bg-green,02) -3px -3px 6px 1px inset;
-    overflow-y: auto;
-    
-    .header{
-      //display:flex;
-      display:none;
-      flex-wrap:nowrap;
-      flex-direction:row;
-      justify-content:space-between;
-      align-items:center;
-      flex:0 0 auto;
-      width:inherit;
-      height: 7vh;
-      padding: $sp-semi $sp-xs $sp-semi $sp-md;
-      box-shadow: 0 0 4px lighten($black,25%);
-      border-bottom: 1px solid map-get($bg-green,02);
-      position:relative;
-      z-index:99;
-      background: linear-gradient( to right, transparent 0%, $gray-100 1%);
-      border-top-left-radius: 22px;
-      
-     // &:after{
-        
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      // }
-      &.active{
-        display:flex;
-        position:fixed;
-        width: inherit;
-        
-        & + .headerSwitch{
-          transform: scale(1.23) rotate(180deg);
-          &.menu_part{
-            height:2px;
-            &::nth-of-type(1){
-              transform:rotate(45deg);
-              width:14px;
-              top: calc( 50% - 2px);
-            }
-            &::nth-of-type(2){
-              left: -3px;
-              opacity:0;
-            }
-            &::nth-of-type(3){
-              transform:rotate(-45deg);
-              width:14px;
-              top: calc( 50% - 2px);
-            }
-          }
-        }
-      }
-      .fabSelect{
-        .p-dropdown{
-          border:2px solid lighten(map-get($btn-colors,info),62%);
-          border-radius: .6rem;
-        }
-        .p-float-label{
-          line-height: $line-height-base;
-        }
-        .p-inputext{
-          font-size: $font-size-s;
-        }
-      }
-      
-      .topMenu{
-        display:flex;
-        justify-content:flex-end;
-        flex-wrap:nowrap;
-        flex-direction:row;
-        align-items:center;
-        list-style:none;
-        width:100%;
-        height:inherit;
-        margin-top: $sp-xs;
-        margin-bottom: $sp-xs;
-        
-        li{
-          padding: $sp-xxs $sp-xs;
-          a,a:not([href]):not([class]){
-            color: map-get($btn-colors,info);
-            &.bell{
-              position:relative;
-            }
-            .noti-dot{
-              top:-10px;
-              right:-12px;
-              min-width:0.9rem;
-              max-width:1.3rem;
-            }
-          }
-        }
-        
-      }//topMenu end  
-      
-    }//header end
-    
-    //switch
-    .headerSwitch{
-      display:block;
-      position:absolute;
-      width:20px;
-      height: $nav-width;
-      line-height: $line-height-base;
-      text-align:center;
-      color:map-get($btn-colors,info);
-      left: $nav-width;
-      z-index: 999;
-      border-style:none;
-      border-top-left-radius: 21px;
-      background: none;
-      overflow:hidden;
-      text-shadow: 2px 2px 2px lighten($black,20%);
-      transition:all 0.55s;
-      cursor:pointer;
-      
-      .menu_part{
-        width:4px;
-        height:4px;
-        position:absolute;
-        background:map-get($btn-colors,info);
-        right:0;
-        margin:auto;
-        left:0;
-        border-radius: $radius-sm;
-        transition:all 0.55s cubic-bezier(0.4, 0.1, 0.4, 0.8);
-        
-        &:nth-of-type(1){
-          top:calc( 50% - 8px + -2px);
-        }
-        &:nth-of-type(2){
-          top:calc( 50% - 8px + 4px);
-        }
-        &:nth-of-type(3){
-          top:calc( 50% - 8px + 10px);
-        }
-      }  
-    }
-    
-    .main{
-      display:flex;
-      flex-direction:column;
-      flex:1 1 auto;
-      padding:$sp-sm $sp-sm $sp-sm $sp-semi;
-      width:100%;
-      
-      //right a frame -box
-      .cardGroup{
-        display:flex;
-        flex-direction:column;
-        width:100%;
-        height:auto;
-        
-        .card{
-          margin-bottom:$sp-sm;
-          padding:$sp-sm $sp-semi;
-          box-shadow: 0 1px 5px 0 lighten($black,8%);
-          border:none;
-          position:unset;/*cover*/
-          display:flex;
-          flex-direction:column;
-          background-color:$white;
-          background-clip:border-box;
-          transform:translateY(0px);
-          
-          legend{
-            display:block;
-            position:relative;
-            font-size: $h4-font-size;
-            letter-spacing:1px;
-            line-height:$headings-line-height;
-            color:$gray-700;
-            margin-bottom:$sp-md;
-            &:after{
-              display:block;
-              content:"";
-              position:absolute;
-              width:2.5rem;
-              height:2px;
-              background: map-get($bg-colors,info);
-              margin-top:$sp-xxs;
-            }
-          }
-          
-          // on/off switch
-          
-          $switch:'p-inputswitch';
-          
-          .switchBox{
+            height:3vh;
             display:flex;
             align-items:center;
-            margin-top:$sp-semi;
-            .#{$switch}{
-              width:3.75rem;
-              height:1.75rem;
-              display:flex;
-              margin-top:$sp-xs;
-              .#{$switch}-checked{
-                .#{$switch}-slider{
-                    box-shadow: lighten($black, 15%) 0 1px 2px inset, lighten($black, 20%) 0 0 3px  inset;
-                    background:map-get($btn-colors,info);
-                  &:after{
-                    position:absolute;
-                    color:$white;
-                    text-shadow: lighten($black, 20%) 0 1px;
-                    top:27%;
-                    font-size: $h8-font-size;
-                    content:"ON";
-                    left: calc(1.25rem - 10px);
-                    right:unset;
-                  }
-                  &:before{
-                    left: calc(1.25rem - 4px);
-                  }
-                }
-                &:not(.p-disabled){
-                  &:hover{
-                    .#{$switch}-slider{
-                      background:map-get($bg-green,01);
+          }
+        }
+      }//logo end
+      
+      //main nav list
+      ul.nav{
+        display:flex;
+        flex-wrap:wrap;
+        flex-direction:column;
+        list-style:none;
+        margin-top: $sp-semi;
+        
+        li{
+          width:100%;
+          min-height: $nav-width;
+          margin: $sp-xxs 0;
+          word-wrap: break-word;
+          display:flex;
+          align-items:center;
+          a{
+            display:flex;
+            flex-direction:row;
+            align-items:center;
+            justify-content:flex-start;
+            //max-widtch: calc(.25rem *47 );
+            width: $nav-width;
+            height:100%;
+            text-decoration:none;
+            padding:0 $sp-sm 0 $sp-xs;
+            position: relative;
+            z-index: 2;
+            color: $white;
+            transition: color 400ms;
+            
+            svg{
+              overflow:visible;
+              width: map-get($icon-size,md);
+              height: map-get($icon-size,md);
+              fill: $white;
+              display: block;
+              font-size: $font-size-base;
+              line-height: $line-height-s;
+            }
+            span{
+              font-size: $font-size-sm;
+              margin-left: $sp-xs;
+              visibility: visible;
+              color: map-get($btn-colors,info);
+              white-space:nowrap;
+              line-height: $line-height-base;
+              font-weight: map-get($font-weight,bold);
+              display:none;
+            }
+            &:hover{
+              span{
+                display:flex;
+                align-items:center;
+                height:$nav-width;
+                padding: $sp-xxs $sp-sm $sp-xxs $sp-xxs;
+                background: $gray-100;
+                animation:moveToR .4s ease-in-out;
+              }
+            }
+            &:active, &.active, &:hover{
+              background-color: $gray-100;
+              svg{
+                fill: map-get($btn-colors,info);
+              }
+               &:before,a.active:hover:before{
+                  @include radial-gradient(circle,#707070,top,right,bottom,left,20px,0,0,0);
+              }
+               &:after,a.active:hover:after{
+                  @include radial-gradient(circle,#707070,top,right,bottom,left,0,0,0,20px);
+              }
+            }//nav's a end
+              @include a('before','hover','active','active',top,-20px,right,-20px,40px,44px);
+              @include a('after','hover','active','active',top,-20px,right,20px,40px,44px);     
+        }
+      }
+      }//nav end
+    }//sidebar end
+    
+      //main content
+      .content{
+          display:flex;
+          flex-grow:1;
+          flex-direction:column;
+          width:calc(100% - #{$nav-width});
+          background: $gray-100;
+          border-radius: 20px 0 0 0;
+          margin-top: $wrapper-content-header-top;
+          box-shadow: map-get($bg-green,"06") 3px 3px 6px 0px inset, map-get($bg-green,"02") -3px -3px 6px 1px inset;
+          overflow-y: auto;
+          
+          .header{
+              //display:flex;
+              display:none;
+              flex-wrap:nowrap;
+              flex-direction:row;
+              justify-content:space-between;
+              align-items:center;
+              flex:0 0 auto;
+              width:inherit;
+              height: 7vh;
+              padding: $sp-semi $sp-xs $sp-semi $sp-md;
+              box-shadow: 0 0 4px lighten($black,25%);
+              border-bottom: 1px solid map-get($bg-green,"02");
+              position:relative;
+              z-index:99;
+              background: linear-gradient( to right, transparent 0%, $gray-100 1%);
+              border-top-left-radius: 22px;
+              
+             // &:after{
+                
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              // }
+              &.active{
+                display:flex;
+                position:fixed;
+                width: inherit;
+                
+                & + .headerSwitch{
+                  transform: scale(1.23) rotate(180deg);
+                  &.menu_part{
+                    height:2px;
+                    &::nth-of-type(1){
+                      transform:rotate(45deg);
+                      width:14px;
+                      top: calc( 50% - 2px);
+                    }
+                    &::nth-of-type(2){
+                      left: -3px;
+                      opacity:0;
+                    }
+                    &::nth-of-type(3){
+                      transform:rotate(-45deg);
+                      width:14px;
+                      top: calc( 50% - 2px);
                     }
                   }
                 }
               }
-            .#{$switch}-slider{
-              &:before{
-                left:$sp-xxs;
-              }
-               &:after{
-                    position:absolute;
-                    color:$white;
-                    text-shadow: lighten($black, 20%) 0 1px;
-                    top:27%;
-                    font-size: $h8-font-size;
-                    content:"OFF";
-                    left: calc(1.25rem + 10px);
-                    color: $gray-700;
-                    text-shadow: 0 1px saturate($white, 50%);
-                  }
-              }
-              & + label{
-                margin-bottom: 0;
-              }
-            }
-          }//switchBox end
-          
-          //dropdown menu box
-          .dropdownList{
-              margin-bottom: $sp-semi;
-              align-content:flex-start;
-            &.vertical{
-              @include flexbox(vertical);
-              .dropdown, .dropdownMultiple{
-                  margin:0 $sp-semi $sp-semi 0;
-              }
-            }
-             &.horizontal{
-              @include flexbox(horizontal);
-              .dropdown, .dropdownMultiple{
-                  margin:0 $sp-semi $sp-xs 0;
-              }
-            }
-          }
-  
-          //selected Qty
-          .selectedQty{
-              font-size:$font-size-xs;
-              font-weight:map-get($font-weight,bold);
-              margin-bottom: $sp-xs;
-              color: lighten($black,70%);
-          }
-  
-          //textarea
-          .show-tool-selected{
-              padding:$sp-xxs;
-              border:1.5px solid lighten(map-get($btn-colors,info),62%);
-              border-radius: $radius-sm;
-              height:93px;
-              width:100%;
-              overflow-y:scroll;
-              overflow-x:hidden;
-              display:flex;
-              flex-direction:row;
-              align-content:flex-start;
-            flex-wrap:wrap;
-            .tool-selected{
-              background: map-get($bg-colors,unselect);
-              display:flex;
-              flex-direction:row;
-              height:30px;
-              margin: $sp-xxs $sp-xs;
-              padding: $sp-xxs $sp-xs;
-              border-radius: $radius-sm;
-              span{
-                white-space:nowrap;
-                display:inline-flex;
-                align-items:center;
-              }
-              // selected items's close icon
-              button{
-                background:transparent;
-                border:none;
-                display:flex;
-                align-items:center;
-                padding: 0 0 0 $sp-xxs;
-                svg.MuiSvgIcon-root{
-                  fill:map-get($btn-colors,info);
-                  width:1.25rem;
-                  height:1.25rem;
-                  display:flex;
-                  font-size: $font-size-lg;
+              .fabSelect{
+                .p-dropdown{
+                  border:2px solid lighten(map-get($btn-colors,info),62%);
+                  border-radius: .6rem;
                 }
-              }
-            }
-            
-          }
-  
-          // page's table, flex area
-          .box{
-            flex-wrap:nowrap;
-            &.horizontal{
-              align-items:center;
-              &.alignR{
-                justify-content: flex-end;
-              }
-            }
-            //change file name
-            .left{
-              display:flex;
-              margin-right:auto;
-              width:100%;
-              height:100%;
-              input.rename{
-                font-size:$h4-font-size;
-                line-height: $line-height-md;
-                border:0;
-                outline:0;
-                text-decoration: 0.15rem solid underline;
-                text-underline-offset:9px;
-                text-decoration-color:map-get($bg-colors,info);
-                background:linear-gradient(map-get($bg-colors,info),map-get($bg-colors,info)) left bottom 0 no-repeat;
-                background-size: 15rem 0.15rem;
-                padding:0;
-                min-width:15rem;
-                &:focus{
-                  text-decoration-color:map-get($bg-green,01);
+                .p-float-label{
+                  line-height: $line-height-base;
+                }
+                .p-inputext{
+                  font-size: $font-size-s;
                 }
               }
               
-            }
-          }//box end
-
-          //choose class
-          .classSelect{
-              margin-top: $sp-xs;
-            .dropdownList{
-              margin-bottom:0;
-              &.vertical{
-                .dropdown{
-                  margin: $sp-sm 0 $sp-xs 0;
+              .topMenu{
+                display:flex;
+                justify-content:flex-end;
+                flex-wrap:nowrap;
+                flex-direction:row;
+                align-items:center;
+                list-style:none;
+                width:100%;
+                height:inherit;
+                margin-top: $sp-xs;
+                margin-bottom: $sp-xs;
+                
+                li{
+                  padding: $sp-xxs $sp-xs;
+                  a,a:not([href]):not([class]){
+                    color: map-get($btn-colors,info);
+                    &.bell{
+                      position:relative;
+                    }
+                    .noti-dot{
+                      top:-10px;
+                      right:-12px;
+                      min-width:0.9rem;
+                      max-width:1.3rem;
+                    }
+                  }
                 }
-              }
+                
+              }//topMenu end  
+              
+            }//header end
+            
+            //switch
+            .headerSwitch{
+              display:block;
+              position:absolute;
+              width:20px;
+              height: $nav-width;
+              line-height: $line-height-base;
+              text-align:center;
+              color:map-get($btn-colors,info);
+              left: $nav-width;
+              z-index: 999;
+              border-style:none;
+              border-top-left-radius: 21px;
+              background: none;
+              overflow:hidden;
+              text-shadow: 2px 2px 2px lighten($black,20%);
+              transition:all 0.55s;
+              cursor:pointer;
+              
+              .menu_part{
+                width:4px;
+                height:4px;
+                position:absolute;
+                background:map-get($btn-colors,info);
+                right:0;
+                margin:auto;
+                left:0;
+                border-radius: $radius-sm;
+                transition:all 0.55s cubic-bezier(0.4, 0.1, 0.4, 0.8);
+                
+                &:nth-of-type(1){
+                  top:calc( 50% - 8px + -2px);
+                }
+                &:nth-of-type(2){
+                  top:calc( 50% - 8px + 4px);
+                }
+                &:nth-of-type(3){
+                  top:calc( 50% - 8px + 10px);
+                }
+              }  
             }
-          }
+            
+            .main{
+              display:flex;
+              flex-direction:column;
+              flex:1 1 auto;
+              padding:$sp-sm $sp-sm $sp-sm $sp-semi;
+              width:100%;
+              
+              //right a frame -box
+              .cardGroup{
+                display:flex;
+                flex-direction:column;
+                width:100%;
+                height:auto;
+                
+                .card{
+                  margin-bottom:$sp-sm;
+                  padding:$sp-sm $sp-semi;
+                  box-shadow: 0 1px 5px 0 lighten($black,8%);
+                  border:none;
+                  position:unset;/*cover*/
+                  display:flex;
+                  flex-direction:column;
+                  background-color:$white;
+                  background-clip:border-box;
+                  transform:translateY(0px);
+                  
+                  legend{
+                    display:block;
+                    position:relative;
+                    font-size: $h4-font-size;
+                    letter-spacing:1px;
+                    line-height:$headings-line-height;
+                    color:$gray-700;
+                    margin-bottom:$sp-md;
+                    &:after{
+                      display:block;
+                      content:"";
+                      position:absolute;
+                      width:2.5rem;
+                      height:2px;
+                      background: map-get($bg-colors,info);
+                      margin-top:$sp-xxs;
+                    }
+                  }
+                  
+                  // on/off switch
+                  
+                  $switch:'p-inputswitch';
+                  
+                  .switchBox{
+                    display:flex;
+                    align-items:center;
+                    margin-top:$sp-semi;
+                    .#{$switch}{
+                      width:3.75rem;
+                      height:1.75rem;
+                      display:flex;
+                      margin-top:$sp-xs;
+                      .#{$switch}-checked{
+                        .#{$switch}-slider{
+                            box-shadow: lighten($black, 15%) 0 1px 2px inset, lighten($black, 20%) 0 0 3px  inset;
+                            background:map-get($btn-colors,info);
+                          &:after{
+                            position:absolute;
+                            color:$white;
+                            text-shadow: lighten($black, 20%) 0 1px;
+                            top:27%;
+                            font-size: $h8-font-size;
+                            content:"ON";
+                            left: calc(1.25rem - 10px);
+                            right:unset;
+                          }
+                          &:before{
+                            left: calc(1.25rem - 4px);
+                          }
+                        }
+                        &:not(.p-disabled){
+                          &:hover{
+                            .#{$switch}-slider{
+                              background:map-get($bg-green,"01");
+                            }
+                          }
+                        }
+                      }
+                    .#{$switch}-slider{
+                      &:before{
+                        left:$sp-xxs;
+                      }
+                       &:after{
+                            position:absolute;
+                            color:$white;
+                            text-shadow: lighten($black, 20%) 0 1px;
+                            top:27%;
+                            font-size: $h8-font-size;
+                            content:"OFF";
+                            left: calc(1.25rem + 10px);
+                            color: $gray-700;
+                            text-shadow: 0 1px saturate($white, 50%);
+                          }
+                      }
+                      & + label{
+                        margin-bottom: 0;
+                      }
+                    }
+                  }//switchBox end
+                  
+                  //dropdown menu box
+                  .dropdownList{
+                      margin-bottom: $sp-semi;
+                      align-content:flex-start;
+                    &.vertical{
+                      // @include flexbox(vertical);
+                      @include flexbox(column,wrap);
 
-        }// card end
+                      .dropdown, .dropdownMultiple{
+                          margin:0 $sp-semi $sp-semi 0;
+                      }
+                    }
+                     &.horizontal{
+                      // @include flexbox(horizontal);
+                      @include flexbox(row,wrap);
+                      .dropdown, .dropdownMultiple{
+                          margin:0 $sp-semi $sp-xs 0;
+                      }
+                    }
+                  }
+          
+                  //selected Qty
+                  .selectedQty{
+                      font-size:$font-size-xs;
+                      font-weight:map-get($font-weight,bold);
+                      margin-bottom: $sp-xs;
+                      color: lighten($black,70%);
+                  }
+          
+                  //textarea
+                  .show-tool-selected{
+                      padding:$sp-xxs;
+                      border:1.5px solid lighten(map-get($btn-colors,info),62%);
+                      border-radius: $radius-sm;
+                      height:93px;
+                      width:100%;
+                      overflow-y:scroll;
+                      overflow-x:hidden;
+                      display:flex;
+                      flex-direction:row;
+                      align-content:flex-start;
+                  flex-wrap:wrap;
+                  .tool-selected{
+                      background: map-get($bg-colors,unselect);
+                      display:flex;
+                      flex-direction:row;
+                      height:30px;
+                      margin: $sp-xxs $sp-xs;
+                      padding: $sp-xxs $sp-xs;
+                      border-radius: $radius-sm;
+                      span{
+                      white-space:nowrap;
+                      display:inline-flex;
+                      align-items:center;
+                      }
+                      // selected items's close icon
+                      button{
+                      background:transparent;
+                      border:none;
+                      display:flex;
+                      align-items:center;
+                      padding: 0 0 0 $sp-xxs;
+                      svg.MuiSvgIcon-root{
+                          fill:map-get($btn-colors,info);
+                          width:1.25rem;
+                          height:1.25rem;
+                          display:flex;
+                          font-size: $font-size-lg;
+                      }
+                      }
+                  }
+                  
+                  }
+          
+                  // page's table, flex area
+                  .box{
+                      flex-wrap:nowrap;
+                      &.horizontal{
+                      align-items:center;
+                      &.alignR{
+                          justify-content: flex-end;
+                      }
+                      }
 
-      }//cardGroup end
-       
-      .dropdown{
-        &.size-sm{
-          margin-right: $sp-sm;
-          .p-multiselect-label-container{
-            height:34px;
-          }
-        }
-      }//dropdown end
+                      //change file name
+                      .left{
+                          display:flex;
+                          margin-right:auto;
+                          width:100%;
+                          height:100%;
+                          input.rename{
+                              font-size:$h4-font-size;
+                              line-height: $line-height-md;
+                              border:0;
+                              outline:0;
+                              text-decoration: 0.15rem solid underline;
+                              text-underline-offset:9px;
+                              text-decoration-color:map-get($btn-colors,info);
+                              background:linear-gradient( map-get($btn-colors,info), map-get($btn-colors,info) ) left bottom 0 no-repeat;
+                              background-size: 15rem 0.15rem;
+                              padding:0;
+                              min-width:15rem;
+                              &:focus{
+                                  text-decoration-color:map-get($bg-green,"01");
+                              }
+                          }
+                          
+                      }
+        
+                 }//box end
 
-    }//main end
-    
-  }//content end 
+                  //choose class
+                  .classSelect{
+                      margin-top: $sp-xs;
+                      .dropdownList{
+                          margin-bottom:0;
+                          &.vertical{
+                          .dropdown{
+                              margin: $sp-sm 0 $sp-xs 0;
+                          }
+                          }
+                      }
+                  }
+        
+                }// card end
+        
+              }//cardGroup end
+               
+              .dropdown{
+                  &.size-sm{
+                    margin-right: $sp-sm;
+                    .p-multiselect-label-container{
+                      height:34px;
+                    }
+                  }
+                }//dropdown end
+        
+            }//main end
+          
+        }//content end 
   
   
 }//wrapper end
@@ -625,6 +637,7 @@ html{
   visibility:hidden;
   opacity:0;
   pointer-events:none;
+  position:absolute;
 }
 %tooltip-hover{
   visibility:visible;
@@ -637,7 +650,6 @@ html{
   
   &:before{
     @extend %tooltip;
-    position:absolute;
     bottom:-104%;
     padding:7px;
     border-radius:3px;
@@ -652,7 +664,6 @@ html{
   }
   &:after{
     @extend %tooltip;
-    position:absolute;
     bottom:-23%;
     width:0;
     border-bottom: 5px solid map-get($bg-green,04);
@@ -721,7 +732,7 @@ html{
       }
       i{
         font-size:map-get($icon-size,sm);
-       @include respond-ratio-above(xxl-ratio, xxl){
+        @include respond-ratio-above(xxl-ratio, xxl){
           font-size: (map-get($icon-size,sm)) + .4rem;
         }
       }
@@ -759,7 +770,7 @@ html{
             height: $size + $sp-xxs;
           }
         }
-        &:hover:not(.size-sm):not(.size-xs){
+        &:hover{
           svg.btn-icon{
             width:$size - $sp-xxs;
             height: $size - $sp-xxs;
@@ -807,16 +818,16 @@ html{
 
 //flex排列
 .horizontal{
-  @include flexbox(horizontal);
+  // @include flexbox(horizontal);
+  @include flexbox(row,wrap);
 }
 .vertical{
-  @include flexbox(vertical);
+  // @include flexbox(vertical);
+  @include flexbox(column,wrap);
 }
 .space-between{
-  justify-content:space-between;
-  align-items:center;
+  @include flexbox-align(space-between,center)
 }
-
 
 //slider cards - accomplish rate
 #rateSlider{
@@ -863,37 +874,33 @@ html{
           }
         }
         &:before{
-          font-family:'Font Awesome 5';
-          font-weight:900;
           font-size:1.75rem;
-          line-height:1;
           color:map-get($btn-colors, info);
           opacity:0.75;
-          display:inline-block;
-          font-style:normal;
-          font-variant:normal;
           text-rendering:auto;
+          @include fa-icon;
+          @extend .fas;
         }
         &-prev{
-          left:0;
-          right:auto;
+          @include arrow-position(0,auto);
           &:before{
-            content: "\f100";
+            content: fa-content($fa-var-angle-double-left);
+            // content: "\f100";
           }
         }
         &-next{
-          right:0;
-          left:auto;
+          @include arrow-position(auto,0);
           &:before{
-            content: "\f101";
+            content: fa-content($fa-var-angle-double-right);
+            // content: "\f101";
           }
         }
       }
       [dir="rtl"] .swiper-button-prev,
-      .swiper-rtl .swiper-button-prev{left:auto;right:0;}
+      .swiper-rtl .swiper-button-prev{@include arrow-position(auto,0);}
       [dir="rtl"] .swiper-button-prev:before{content: "\f100";}
       [dir="rtl"] .swiper-button-next,
-      .swiper-rtl .swiper-button-next{left:0;right:auto;}
+      .swiper-rtl .swiper-button-next{@include arrow-position(0,auto);}
       [dir="rtl"] .swiper-button-next:before{content: "\f101";}
       .swiper-wrapper{
         display:flex;
@@ -915,7 +922,7 @@ html{
             position:relative;
             margin: 0 $sp-xs;
             padding: $sp-xs;
-            border:1px solid map-get($bg-green,02);
+            border:1px solid map-get($bg-green,"02");
             transition:all 0.3s ease-in-out;
             z-index:1;
             &:hover{
@@ -962,11 +969,11 @@ html{
                 bottom:0;
                 width:100%;
                 height: 0.286rem;
-                background: map-get($bg-green,02);
+                background: map-get($bg-green,"02");
                 border:0;
                 border-radius: 0 0 $radius-sm $radius-sm;
                 .p-slider-range{
-                  background: map-get($bg-green,05);
+                  background: map-get($bg-green,"05");
                   height:100%;
                   position:absolute;
                   display:block;
@@ -983,112 +990,106 @@ html{
   }
 }//rateSlider end
 
-//要蓋過去
-.content .main .cardGroup .swiper-slide .card{
-  position:relative;
-  margin:0 $sp-xs;
-  padding:$sp-xs;
-}
 
+// 說明頁
+// <button class="expand help active">
+// <svg></svg>
+// <span class="download">Save as files in different formats </span>
+// <span class="name">Change Schedule Name</span>
+// <span class="morecolumn">Expand/Collapse Column</span>
+// <span class="row3column">Expand/Collapse Left&nbsp;Freeze Column</span>
+// </button>
+.help{
+  display: none;
+  &.active{
+      width: 100%;
+      height: 100%;
+      position: fixed;
+      background: #ffffffd1;
+      z-index: 9999;
+      pointer-events: unset;
+      display: flex;       
+  }
+  span{
+      position: relative;
+      color: map-get($btn-colors , danger );
+      display: flex;
+      @include fa-icon;
+      @extend .fas;
+      &:before{
+          position: absolute;
+          border: 2px solid map-get($btn-colors , danger );
+          content: "";
+      }
+      &:after{
+          position: absolute;
+          content: "";
+          font-weight: bold;
+          font-size: 1.5rem;
+      }
+  }
+  .download{
+      top: 140px;
+      right: -1000px;
+      &:before{
+          top: -62px;
+          right: 60px;
+          width: 40px;
+          height: 40px;
+      }
+      &:after{
+          top: -30px;
+          right: 76px;
+          content: fa-content($fa-var-long-arrow-alt-down);
+          // content: "↓";
+      }
+  }
+  .name{
+      top: 40px;
+      left: 20px;
+      &:before{
+          top: -12px;
+          left: -228px;
+          width: 200px;
+          height: 40px;
+      }
+      &:after{
+          top: -8px;
+          left: -28px;
+          content: fa-content($fa-var-long-arrow-alt-right);
+          // content: "→";
+      }
+  }
+  .morecolumn{
+      top: 120px;
+      left: -286px;
+      &:before{
+          top: -12px;
+          left: -65px;
+          width: 40px;
+          height: 40px;
+      }
+      &:after{
+          top: -8px;
+          left: -28px;
+          content: fa-content($fa-var-long-arrow-alt-right);
+          // content: "→";
+      }
+  }
+  .row3column{
+      top: 159px;
+      left: 122px;
+      &:before{
+          top: -12px;
+          left: -65px;
+          width: 40px;
+          height: 40px;
+      }
+      &:after{
+          @include arrow-position-help(-8px,-28px,inherit);
+          content: fa-content($fa-var-long-arrow-alt-right);
+          // content: "→";
+      }
+  }
 
-/*----------------------old pages cover 蓋過 調整舊頁面框架----------------*/
-.frame{
-  .card{
-    .p-card{
-      box-shadow:none;
-      border:0;
-      &.p-component{
-        width:100%;
-        height:100%;
-        .p-card-body{
-          height:100%;
-          padding:0;
-          .p-card-content{
-            height:100%;
-            padding:0.5rem 0;
-          }
-        }
-      }
-    }
-    &.chart{
-      .p-card{
-        .p-card-contnet{
-          height:100%;
-          padding:0;
-        }
-      }
-    }
-  }
-}
-
-.content{
-  .main{
-    .frame{
-      .cardGroup{
-        .card{
-          padding:.5rem 0;
-          &:last-child{
-            margin-bottom:0;
-          }
-          &.chart{
-            /* position: relative;*/
-            margin:0;
-            padding:0;
-            height:calc(100vh - 138px);
-            width:100%;
-            & > div{
-              margin: 30px 0 0 0;
-              width:100%;
-              height:100%;
-            }
-          }
-          iframe{
-            
-            
-            height:calc(100vh - 52px);
-            width:100%;
-            border:0;
-          }
-        }
-      }
-    }
-  }
-}
-//從1073開始沒有同步 是要蓋過去的硬寫
-.p-checkbox .p-checkbox-box.p-highlight{
-  border-color: map-get($btn-colors, success);
-  background: map-get($btn-colors, success);
-}
-.btn-primary{
-  border-color: map-get($btn-colors, info) !important;
-  background: map-get($btn-colors, info) !important;
-    &:hover{
-    border-color: map-get($bg-green, 02) !important;
-    background: map-get($bg-green, 02) !important;
-  }
-}
-.generate{
-  color:$gray-700;
-  font-size:$h4-font-size;
-  letter-spacing:1px;
-  line-height:$headings-line-height;
-  font-family: "Roboto", sans-serif;
-  display:block;
-  position:relative;
-  margin-bottom:1.5rem;
-  margin-left:1rem;
-  &:after{
-    display:block;
-    content:"";
-    position:absolute;
-    width:2.5rem;
-    height:2px;
-    background: map-get($btn-colors, info);
-    margin-top:0.3em;
-  }
-    & + h6{
-      color:map-get($bg-green, 08);
-      margin-bottom:2.5rem;
-      margin-left:1rem;
-    }
 }
