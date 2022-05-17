@@ -14,3 +14,6 @@ styles/css
 
 
 dev.azure.com/tsmcit/EA/_git/TDM-ToolInstallationUI/commits
+
+SOPmangement功能
+https://sdlw2.csb.app/
