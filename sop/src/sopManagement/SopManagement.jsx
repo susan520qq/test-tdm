@@ -100,7 +100,6 @@ const GridExample = (props: any) => {
                 </div>
             </div>
         </div>
-        
     );
 };
 
