@@ -195,7 +195,6 @@ const Create = (props: any) => {
                     </div>
 
                 </div>
-               
             </div>        
             <div className='view'>
                 <div className='grid-table ag-theme-alpine'>
